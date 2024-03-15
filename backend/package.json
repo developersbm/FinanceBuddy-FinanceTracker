@@ -15,5 +15,11 @@
     "mongodb": "^6.5.0",
     "mongoose": "^8.2.1",
     "nodemon": "^3.1.0"
+  },
+  "net": {
+    "port": 27017,
+    "bindIp": "127.0.0.1",
+    "ipv6": true,
+    "bindIpAll": true
   }
 }
