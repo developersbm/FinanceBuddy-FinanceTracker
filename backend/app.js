@@ -1,25 +1,38 @@
-const express = require('express')
+const express = require('express');
 const cors = require('cors');
 const { db } = require('./db/db');
-const {readdirSync} = require('fs')
-const app = express()
+const { readdirSync } = require('fs');
+const path = require('path');
 
-require('dotenv').config()
+require('dotenv').config();
 
-const PORT = process.env.PORT
+const app = express();
 
-//middlewares
-app.use(express.json())
-app.use(cors())
+const PORT = process.env.PORT || 5000;
 
-//routes
-readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)))
+// Middleware
+app.use(express.json());
+app.use(cors({
+  origin: 'http://127.0.0.1:3000' // Update this to your frontend URL
+}));
 
-const server = () => {
-    db()
+// Dynamically mount routes
+const routesPath = path.join(__dirname, 'routes');
+readdirSync(routesPath).forEach(file => {
+  const route = require(path.join(routesPath, file));
+  app.use('/api/v1', route);
+});
+
+// Start server
+const startServer = async () => {
+  try {
+    await db(); // Assuming db() returns a promise
     app.listen(PORT, () => {
-        console.log('listening to port:', PORT)
-    })
-}
+      console.log('Server is running on port:', PORT);
+    });
+  } catch (error) {
+    console.error('Error starting server:', error);
+  }
+};
 
-server()
+startServer();
