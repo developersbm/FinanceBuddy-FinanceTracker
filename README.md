@@ -60,12 +60,12 @@ Coming soon...
 - Use the middleware for parsing JSON body and add cors to allow request in the frontend URL.
 - Dynamic route mounting
 
-* Allow access to the backend doing
+* Allow access to the backend
 ```
 cd backend
 npm start
 ```
-* Allow access to the frontend doing
+* Allow access to the frontend
 ```
 cd frontend
 npm start
