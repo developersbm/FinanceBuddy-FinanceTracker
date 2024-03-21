@@ -1,15 +1,21 @@
-# BudgetBuddy <div id="#readme-top"></div>
+<div id="readme-top"></div>
+
+# BudgetBuddy
 
 ## Documentation
-- [Authentication & Users (Coming Soon)](#Authentication)
-- [Frontend](#frontend)
-- [Backend](#backend)
-- [Connecting Frontend & Backend](#connecting-backend--frontend)
+- <a href="#Authentication">Authentication & Users (Coming Soon)</a>
+- <a href="#Showcase">Showcase</a>
+- <a href="#backend">Backend</a>
+- <a href="#connecting-backend--frontend">Connecting Frontend & Backend</a>
 
-## Frontend <a name="frontend"></a>
-Here goes frontend portion
+<a id="Showcase"></a>
 
-## Backend (API, MongoDB & CRUD) <a name="backend"></a>
+## Showcase
+Coming soon...
+
+<div id="backend"></div>
+
+## Backend (API, MongoDB & CRUD)
 
 ### Connecting Database to MongoDB
 - Importing Mongoose library with an object (ODM), allowing to define schemas, models, and interact with Node.js.
@@ -54,6 +60,45 @@ Here goes frontend portion
 - Use the middleware for parsing JSON body and add cors to allow request in the frontend URL.
 - Dynamic route mounting
 
+* Allow access to the backend doing
+```
+cd backend
+npm start
+```
+* Allow access to the frontend doing
+```
+cd frontend
+npm start
+```
 
-# Connecting Backend & Frontend <a name="connecting-backend--frontend"></a>
-Here goes the connection
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<div id="connecting-backend--frontend"></div>
+
+## Connecting Backend & Frontend
+- For this I use the globalContext.js Here I track different functions with the base URL of my backend route.
+- I use the library of axios to POST, GET, DELETE elements.
+
+
+#### addIncome/Expenses
+- Sends an HTTP POST request to the specified URL ${BASE_URL}add-income, including the income data.
+- Sets up an error handling mechanism using .catch() to handle any errors that occur during the request, updating the error state with the error message from the response if an error occurs.
+- Calls the getIncomes() function after the request completes successfully, to fetch and update the list of incomes to reflect the newly added income.
+#### getIncome/Expenses
+- Sends an HTTP GET request to the specified URL ${BASE_URL} get-incomes, including the income data.
+#### deleteIncome/Expenses
+- Sends an HTTP DELETE request to the specified URL ${BASE_URL} delete-income and grabs the id that needs to be deleted.
+- Calls the getIncomes() function after the request completes successfully, to fetch and update the list of incomes to reflect the newly deleted income.
+#### totalIncome/Expenses
+- It iterates over each income entry in the incomes/expenses array using the forEach() method.
+- For each income/expense entry, it adds the amount to the totalIncome variable.
+- After iterating through all income entries, it returns the calculated totalIncome/totalExpenses, representing the sum of all income amounts in the array.
+#### totalBalance
+- For this function I only return the totalIncome() - totalExpenses()
+
+#### transactionHistory
+- Generates a summary of the transaction history by combining income and expense records.
+- Sorting them based on their creation dates in descending order. This is executed by the comparator function that compares 2 transactions a & b by their creation dates.
+- Using splice to return the three most recent transactions.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
