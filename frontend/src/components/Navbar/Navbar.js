@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 // import avatar from '../../img/avatar.png';
-// import { signout } from '../../utils/Icons';
+import { signout } from '../utils/Icons';
 // import { menuItems } from '../../utils/menuItems';
 
 const Navbar = () => {
@@ -15,9 +15,9 @@ const Navbar = () => {
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
-                <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-                <li><NavLink to="/incomes">Incomes</NavLink></li>
-                <li><NavLink to="/expenses">Expenses</NavLink></li>
+                <li><NavLink to="/screens/dashboard">Dashboard</NavLink></li>
+                <li><NavLink to="/screens/incomes">Incomes</NavLink></li>
+                <li><NavLink to="/screens/expenses">Expenses</NavLink></li>
                     <li>
                         <details>
                             <summary>Account</summary>
@@ -25,7 +25,7 @@ const Navbar = () => {
                                 <li><a href="/">Link 1</a></li>
                                 <li><a href="/">Link 2</a></li>
                                 <li><a href="/">Link 3</a></li>
-                                <li onClick={() => setActive(null)}>{/* Add signout logic here */} Sign Out</li>
+                                <li onClick={() => setActive(null)}>{signout} Sign Out</li>
                             </ul>
                         </details>
                     </li>
