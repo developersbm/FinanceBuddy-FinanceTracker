@@ -10,4 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     body{
         font-family: 'Nunito', sans-serif;
     }
+    h1,h2,h3,h4 {
+        
+    }
 `;

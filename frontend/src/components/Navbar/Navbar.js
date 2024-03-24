@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 // import avatar from '../../img/avatar.png';
 // import { signout } from '../../utils/Icons';
 // import { menuItems } from '../../utils/menuItems';
@@ -10,14 +11,13 @@ const Navbar = () => {
     return (
         <NavStyled>
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl">LOGO</a>
+                <NavLink to="/home" className="btn btn-ghost text-xl">LOGO</NavLink>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a href="/screens/dashboard">Dashboard</a></li>
-                    <li><a href="/">View Transactions</a></li>
-                    <li><a href="/screens/incomes">Incomes</a></li>
-                    <li><a href="/">Expenses</a></li>
+                <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+                <li><NavLink to="/incomes">Incomes</NavLink></li>
+                <li><NavLink to="/expenses">Expenses</NavLink></li>
                     <li>
                         <details>
                             <summary>Account</summary>
