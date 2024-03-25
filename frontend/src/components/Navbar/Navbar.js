@@ -38,7 +38,7 @@ const Navbar = () => {
 const NavStyled = styled.nav`
     padding: 2rem 1.5rem;
     width: 100%;
-    background: rgba(252, 246, 249, 0.78);
+    background: linear-gradient(to bottom right, lightgreen, lightblue);
     border: 3px solid #ffffff;
     backdrop-filter: blur(4.5px);
     border-radius: 32px;
@@ -77,23 +77,27 @@ const NavStyled = styled.nav`
 
     .dropdown-menu {
         position: absolute;
-        background-color: #ffffff;
+        background: linear-gradient(to bottom right, lightgreen, lightblue);
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
         list-style-type: none;
         padding: 0;
+        width: 10em;
         margin: 0;
         border-radius: 8px;
-
+        right: 0; 
+    
         li {
             padding: 8px 12px;
             transition: background-color 0.3s;
-
+    
             &:hover {
                 background-color: #f0f0f0;
             }
         }
     }
+    
+    
 `;
 
 export default Navbar;

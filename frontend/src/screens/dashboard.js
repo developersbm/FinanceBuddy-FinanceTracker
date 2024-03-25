@@ -15,7 +15,10 @@ const Dashboard = () => {
 
   return (
     <DashboardStyled>
-        <h1 className='main-title'>All Transactions</h1>
+        <div className="header-container">
+        <h1 className="main-title">All Transactions</h1>
+        <h1 className="sub-title">Recent History</h1>
+        </div>
         <div className="stats-con">
             <div className='chart-con'>
                 <div className="amount-con">
@@ -41,7 +44,7 @@ const Dashboard = () => {
             </div>
             <div className="history-con">
                 <History />
-                <h2 className="salary-title">Min <span>Salary</span>Max</h2>
+                <h2 className="salary-title">Min <span>Income</span>Max</h2>
                 <div className="salary-item">
                     <p>
                         ${Math.min(...incomes.map(item => item.amount))}
@@ -66,10 +69,17 @@ const Dashboard = () => {
 };
 
 const DashboardStyled = styled.div`
+    .header-container {
+    display: flex;
+    justify-content: space-between;
+    }
+    .sub-title {
+    margin-right: 2rem;
+    text-align: right;
+    }
     .main-title {
         margin-left: 2rem;
         display: grid;
-        padding-top: 50px;
     }
     .stats-con{
         display: grid;
@@ -91,11 +101,12 @@ const DashboardStyled = styled.div`
                     grid-column: span 2;
                 }
                 .income, .expense, .balance{
-                    background: #FCF6F9;
+                    background: linear-gradient(to bottom right, lightgreen, lightblue);
                     border: 2px solid #FFFFFF;
                     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
                     border-radius: 20px;
                     padding: 1rem;
+                    width: 80%;
                     p{
                         font-size: 3.5rem;
                         font-weight: 700;
@@ -134,7 +145,7 @@ const DashboardStyled = styled.div`
                 }
             }
             .salary-item{
-                background: #FCF6F9;
+                background: linear-gradient(to bottom right, lightgreen, lightblue);
                 border: 2px solid #FFFFFF;
                 box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
                 padding: 1rem;

@@ -9,7 +9,6 @@ function History() {
 
     return (
         <HistoryStyled>
-            <h2>Recent History</h2>
             {history.map((item) =>{
                 const {_id, title, amount, type} = item
                 return (
@@ -35,11 +34,14 @@ function History() {
 }
 
 const HistoryStyled = styled.div`
+    h2 {
+        font-size: 30px;
+    }
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     .history-item{
-        background: #FCF6F9;
+        background: linear-gradient(to bottom right, lightgreen, lightblue);
         border: 2px solid #FFFFFF;
         box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
         padding: 1rem;
