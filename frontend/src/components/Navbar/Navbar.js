@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 // import avatar from '../../img/avatar.png';
-import { signout } from '../utils/Icons';
+import { signout } from '../../utils/Icons';
 // import { menuItems } from '../../utils/menuItems';
+import logo from '../../img/logo.png';
+import profile from '../../img/profile.png';
+import letters from '../../img/letters.png';
 
 const Navbar = () => {
     const [active, setActive] = useState(null);
@@ -11,20 +14,21 @@ const Navbar = () => {
     return (
         <NavStyled>
             <div className="flex-1">
-                <NavLink to="/home" className="btn btn-ghost text-xl">LOGO</NavLink>
+            <StyledNavLink to="/home" className="btn btn-ghost text-xl">
+                <img src={logo} style={{ width: '40px', height: '40px' }} /></StyledNavLink>
+                <img src={letters} style={{ height: '30px' , paddingLeft: '10px'}} />
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
-                <li><NavLink to="/screens/dashboard">Dashboard</NavLink></li>
-                <li><NavLink to="/screens/incomes">Incomes</NavLink></li>
-                <li><NavLink to="/screens/expenses">Expenses</NavLink></li>
+                <li><StyledNavLink to="/screens/dashboard">Dashboard</StyledNavLink></li>
+                <li><StyledNavLink to="/screens/incomes">Incomes</StyledNavLink></li>
+                <li><StyledNavLink to="/screens/expenses">Expenses</StyledNavLink></li>
                     <li>
                         <details>
-                            <summary>Account</summary>
+                        <summary><img src={profile} style={{ width: '40px', height: '40px' }}></img></summary>
                             <ul className="dropdown-menu">
-                                <li><a href="/">Link 1</a></li>
-                                <li><a href="/">Link 2</a></li>
-                                <li><a href="/">Link 3</a></li>
+                                <li><a href="/screens/account">Account</a></li>
+                                <li><a href="/screens/setting">Settings</a></li>
                                 <li onClick={() => setActive(null)}>{signout} Sign Out</li>
                             </ul>
                         </details>
@@ -40,11 +44,11 @@ const NavStyled = styled.nav`
     width: 100%;
     background: linear-gradient(to bottom right, lightgreen, lightblue);
     border: 3px solid #ffffff;
-    backdrop-filter: blur(4.5px);
-    border-radius: 32px;
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+    text-decoration: none;
+
 
     .menu {
         display: flex;
@@ -57,7 +61,7 @@ const NavStyled = styled.nav`
             transition: all 0.4s ease-in-out;
             color: rgba(34, 34, 96, 0.6);
             position: relative;
-
+=
             &.active {
                 color: rgba(34, 34, 96, 1) !important;
 
@@ -69,7 +73,6 @@ const NavStyled = styled.nav`
                     width: 4px;
                     height: 100%;
                     background: #222260;
-                    border-radius: 0 10px 10px 0;
                 }
             }
         }
@@ -86,11 +89,13 @@ const NavStyled = styled.nav`
         margin: 0;
         border-radius: 8px;
         right: 0; 
-    
+        a {
+            text-decoration: none;
+        }
         li {
             padding: 8px 12px;
             transition: background-color 0.3s;
-    
+
             &:hover {
                 background-color: #f0f0f0;
             }
@@ -98,6 +103,9 @@ const NavStyled = styled.nav`
     }
     
     
+`;
+const StyledNavLink = styled(NavLink)`
+    text-decoration: none;
 `;
 
 export default Navbar;

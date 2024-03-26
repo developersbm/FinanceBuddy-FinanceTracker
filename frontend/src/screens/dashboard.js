@@ -36,7 +36,7 @@ const Dashboard = () => {
                     </div>
                     <div className="balance">
                         <h2>Total Balance</h2>
-                        <p>
+                        <p className='total-balance'>
                             {dollar} {totalBalance()}
                         </p>
                     </div>
@@ -108,7 +108,7 @@ const DashboardStyled = styled.div`
                     padding: 1rem;
                     width: 80%;
                     p{
-                        font-size: 3.5rem;
+                        font-size: 2.5rem;
                         font-weight: 700;
                     }
                 }
@@ -119,10 +119,13 @@ const DashboardStyled = styled.div`
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+                    h2 {
+                        font-size: 2rem;
+                    }
                     p{
                         color: var(--color-green);
                         opacity: 0.6;
-                        font-size: 4.5rem;
+                        font-size: 3rem;
                     }
                 }
             }

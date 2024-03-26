@@ -86,8 +86,8 @@ function IncomeItem({
                             bPad={'1rem'}
                             bRad={'50%'}
                             bg={'var(--primary-color'}
-                            color={'#fff'}
-                            iColor={'#fff'}
+                            color={'darkgreen'}
+                            iColor={'darkgreen'}
                             hColor={'var(--color-green)'}
                             onClick={() => deleteItem(id)}
                         />
@@ -99,9 +99,9 @@ function IncomeItem({
 }
 
 const IncomeItemStyled = styled.div`
-    background: #FCF6F9;
-    border: 2px solid #FFFFFF;
-    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+background: linear-gradient(to bottom right, lightgreen, lightblue);
+border: 2px solid #FFFFFF;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.06);
     border-radius: 20px;
     padding: 1rem;
     margin-bottom: 1rem;
