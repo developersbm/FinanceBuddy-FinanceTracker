@@ -14,15 +14,17 @@ const Navbar = () => {
     return (
         <NavStyled>
             <div className="flex-1">
-            <StyledNavLink to="/home" className="btn btn-ghost text-xl">
-                <img src={logo} style={{ width: '40px', height: '40px' }} /></StyledNavLink>
+            <StyledNavLink to="/screens/dashboard" className="btn btn-ghost text-xl">
+                <img src={logo} style={{ width: '40px', height: '40px' }} />
                 <img src={letters} style={{ height: '30px' , paddingLeft: '10px'}} />
+            </StyledNavLink>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
                 <li><StyledNavLink to="/screens/dashboard">Dashboard</StyledNavLink></li>
                 <li><StyledNavLink to="/screens/incomes">Incomes</StyledNavLink></li>
                 <li><StyledNavLink to="/screens/expenses">Expenses</StyledNavLink></li>
+                <li><StyledNavLink to="/screens/stockpredictor">Stock Predictor</StyledNavLink></li>
                     <li>
                         <details>
                         <summary><img src={profile} style={{ width: '40px', height: '40px' }}></img></summary>
@@ -40,30 +42,30 @@ const Navbar = () => {
 };
 
 const NavStyled = styled.nav`
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.5rem;
     width: 100%;
-    background: linear-gradient(to bottom right, lightgreen, lightblue);
+    background: white;
     border: 3px solid #ffffff;
     display: flex;
     justify-content: space-between;
     gap: 2rem;
     text-decoration: none;
 
-
     .menu {
         display: flex;
         align-items: center;
         gap: 1rem;
         margin-top: auto;
-
+        color: black;
+        font-size: 20px;
         li {
             cursor: pointer;
             transition: all 0.4s ease-in-out;
-            color: rgba(34, 34, 96, 0.6);
+            color: linear-gradient(to bottom right, lightgreen, lightblue) !important;
             position: relative;
 =
             &.active {
-                color: rgba(34, 34, 96, 1) !important;
+                color: linear-gradient(to bottom right, lightgreen, lightblue) !important;
 
                 &::before {
                     content: '';
@@ -80,7 +82,7 @@ const NavStyled = styled.nav`
 
     .dropdown-menu {
         position: absolute;
-        background: linear-gradient(to bottom right, lightgreen, lightblue);
+        background: white;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
         list-style-type: none;
@@ -106,6 +108,17 @@ const NavStyled = styled.nav`
 `;
 const StyledNavLink = styled(NavLink)`
     text-decoration: none;
+    background: linear-gradient(to bottom, #65d684, #65d684, cyan);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background 0.5s ease;
+
+    &:hover {
+        background: none;
+        -webkit-text-fill-color: black;
+    }
 `;
+
+
 
 export default Navbar;
