@@ -72,9 +72,13 @@ const ChartStyled = styled.div`
     background: #FCF6F9;
     border: 2px solid #FFFFFF;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-    padding: 1rem;
-    border-radius: 20px;
-    height: 90%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    height: 50%;
+
+    max-width: 400px;
+    margin: 0 auto;
 `;
+
 
 export default Chart

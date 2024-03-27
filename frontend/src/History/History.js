@@ -41,7 +41,7 @@ const HistoryStyled = styled.div`
     flex-direction: column;
     gap: 2rem;
     .history-item{
-        background: linear-gradient(to bottom right, lightgreen, lightblue);
+        background: white;
         border: 2px solid #FFFFFF;
         box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
         padding: 1rem;
