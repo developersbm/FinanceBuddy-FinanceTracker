@@ -2,7 +2,7 @@
 
 # FinanceBuddy 
 
-## Documentation
+## Documentation 
 - <a href="#Authentication">Authentication & Users (Coming Soon)</a>
 - <a href="#Showcase">Showcase</a>
 - <a href="#backend">Backend</a>
