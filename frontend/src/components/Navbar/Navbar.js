@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { signout } from '../../utils/Icons';
 // import { menuItems } from '../../utils/menuItems';
 import logo from '../../img/logo.png';
-import profile from '../../img/profile.png';
+import profile from '../../img/profile2.png';
 import letters from '../../img/letters.png';
 
 const Navbar = () => {
@@ -31,7 +31,7 @@ const Navbar = () => {
                             <ul className="dropdown-menu">
                                 <li><a href="/screens/account">Account</a></li>
                                 <li><a href="/screens/setting">Settings</a></li>
-                                <li onClick={() => setActive(null)}>{signout} Sign Out</li>
+                                <li style={{color: 'red'}} onClick={() => setActive(null)}>{signout} Sign Out</li>
                             </ul>
                         </details>
                     </li>
@@ -90,9 +90,12 @@ const NavStyled = styled.nav`
         width: 10em;
         margin: 0;
         border-radius: 8px;
+        color: green;
+        
         right: 0; 
         a {
             text-decoration: none;
+            color: green;
         }
         li {
             padding: 8px 12px;
@@ -108,7 +111,7 @@ const NavStyled = styled.nav`
 `;
 const StyledNavLink = styled(NavLink)`
     text-decoration: none;
-    background: linear-gradient(to bottom, #65d684, #65d684, cyan);
+    background: linear-gradient(to bottom, darkgreen, #65d684, #65d684, #65d684, cyan);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: background 0.5s ease;

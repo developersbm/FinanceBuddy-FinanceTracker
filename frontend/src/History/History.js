@@ -11,16 +11,15 @@ function History() {
         <HistoryStyled>
             {history.map((item) =>{
                 const {_id, title, amount, type} = item
+
                 return (
                     <div key={_id} className="history-item">
-                        <p style={{
-                            color: type === 'expense' ? 'red' : 'var(--color-green)'
-                        }}>
+                        <p style={{ fontWeight: 'bold', color: 'black' }}>
                             {title}
                         </p>
 
                         <p style={{
-                            color: type === 'expense' ? 'red' : 'var(--color-green)'
+                            color: type === 'income' ? 'green' : 'red'
                         }}>
                             {
                                 type === 'expense' ? `-${amount <= 0 ? 0 : amount}` : `+${amount <= 0 ? 0: amount}`
