@@ -1,6 +1,6 @@
 <div id="readme-top"></div>
 
-# FinanceBuddy
+# FinanceBuddy 
 
 ## Documentation
 - <a href="#Authentication">Authentication & Users (Coming Soon)</a>
