@@ -76,7 +76,7 @@ const ChartStyled = styled.div`
     border-radius: 10px;
     height: 50%;
 
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
 `;
 

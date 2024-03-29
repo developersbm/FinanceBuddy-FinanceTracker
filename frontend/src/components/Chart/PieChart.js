@@ -23,14 +23,29 @@ function PieChart() {
                 hoverOffset: 4,
             },
         ],
+        tooltips: {
+            callbacks: {
+                label: function(context) {
+                    let label = context.label || '';
+                    if (label) {
+                        label += ': ';
+                    }
+                    label += context.parsed.toFixed(2) + '%';
+                    return label;
+                }
+            }
+        }
     };
 
     return (
         <ChartStyled>
-            <Pie data={data} />
+            <Center>
+                <Pie data={data} />
+            </Center>
         </ChartStyled>
     );
 }
+
 const ChartStyled = styled.div`
     background: #fcf6f9;
     border: 2px solid #ffffff;
@@ -38,8 +53,15 @@ const ChartStyled = styled.div`
     padding: 0.5rem;
     border-radius: 10px;
     height: 170px;
-    width: 200px;
+    width: 300px;
     margin: 0 auto;
+`;
+
+const Center = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 `;
 
 export default PieChart;

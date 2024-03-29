@@ -71,7 +71,7 @@ const DashboardStyled = styled.div`
     text-align: right;
     margin-right: 13pc;
     padding-bottom: 5px;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
   }
   .sub-title {
     margin-right: 2rem;
@@ -96,7 +96,7 @@ const DashboardStyled = styled.div`
         gap: 2rem;
         margin-top: 2rem;
         .income {
-          color: green;
+          color: green !important;
         }
         .expense {
           color: red;
@@ -119,6 +119,7 @@ const DashboardStyled = styled.div`
           h2 {
             font-size: 1.5rem;
             margin-top: -10px;
+            color: black !important;
           }
         }
         .balance {

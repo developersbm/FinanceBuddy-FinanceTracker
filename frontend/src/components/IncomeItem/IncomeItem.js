@@ -99,7 +99,7 @@ function IncomeItem({
 }
 
 const IncomeItemStyled = styled.div`
-background: linear-gradient(to bottom right, lightgreen, lightblue);
+background: white;
 border: 2px solid #FFFFFF;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.06);
     border-radius: 20px;
@@ -114,7 +114,7 @@ border: 2px solid #FFFFFF;
         width: 80px;
         height: 80px;
         border-radius: 20px;
-        background: #F5F5F5;
+        background: linear-gradient(to bottom right, lightgreen, lightblue);
         display: flex;
         align-items: center;
         justify-content: center;
