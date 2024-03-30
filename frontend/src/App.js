@@ -10,6 +10,7 @@ import Chatbot from 'react-chatbot-kit';
 import config from './components/Chatbot/config';
 import ActionProvider from './components/Chatbot/ActionProvider';
 import MessageParser from './components/Chatbot/MessageParser';
+// import StockPredictionApp from '../../screens/stockPredictor';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Route exact path="/screens/dashboard" element={<Dashboard />} />
             <Route path="/screens/incomes" element={<Incomes />} />
             <Route exact path="/screens/expenses" element={<Expenses />} />
+            {/* <Route exact path="/screens/stockPredictor" element={<StockPredictionApp />} /> */}
           </Routes>
           {/* <Chatbot
             config={config}
