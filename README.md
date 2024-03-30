@@ -7,6 +7,7 @@
 - <a href="#Showcase">Showcase</a>
 - <a href="#backend">Backend</a>
 - <a href="#connecting-backend--frontend">Connecting Frontend & Backend</a>
+- <a href="#to-do">To Do</a>
 
 <a id="Showcase"></a>
 
@@ -103,6 +104,7 @@ npm start
 - Using splice to return the three most recent transactions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+<div id="to-do"></div>
 
 ## To Do
 - User Authentication so that each user has their own FinanceBuddy
