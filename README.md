@@ -5,15 +5,33 @@
 ## Documentation 
 - <a href="#Authentication">Authentication & Users (Coming Soon)</a>
 - <a href="#Showcase">Showcase</a>
+- <a href="#built-with">Built With</a>
 - <a href="#backend">Backend</a>
 - <a href="#connecting-backend--frontend">Connecting Frontend & Backend</a>
 - <a href="#to-do">To Do</a>
 
 <a id="Showcase"></a>
 
-## Showcase
+## Showcase (Main Website)
 
 https://github.com/developersbm/FinanceBuddy-FinanceTracker/assets/122469079/24cdcbdd-f8df-45a4-a69c-d53fd185007a
+
+## Showcase (Stock Predictor)
+
+https://github.com/developersbm/FinanceBuddy-FinanceTracker/assets/122469079/00e5bde6-435e-48a9-a291-1f3fe0a51282
+
+<a id="built-with"></a>
+
+# Built With
+* [![React][React.com]][React-url] 
+* [![MongoDB](https://img.shields.io/badge/MongoDB-darkgreen?logo=mongodb&logoColor=white&style=flat-square)](https://docs.mongodb.com/)
+* [![Node.js](https://img.shields.io/badge/Node.js-green?logo=node.js&logoColor=white&style=flat-square)](https://nodejs.org/)
+* [![Express.js](https://img.shields.io/badge/Express.js-blue?logo=express&logoColor=white&style=flat-square)](https://expressjs.com/)
+* ![Python][Python.com]
+* [![HTML][HTML.com]][HTML-url]
+* [![CSS][CSS.com]][CSS-url]
+
+
 
 <div id="backend"></div>
 
@@ -112,3 +130,12 @@ npm start
 - Chat with AI so that it can help you track your income and expenses more effectively
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p
+
+[Python.com]:https://img.shields.io/badge/Python-blue?logo=python&logoColor=white&style=flat-square
+[Python-url]: https://www.python.org/
+[HTML.com]: https://img.shields.io/badge/HTML-orange?logo=html5&style=flat-square
+[HTML-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
+[CSS.com]: https://img.shields.io/badge/CSS-blue?logo=css3&style=flat-square
+[CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
+[React.com]: https://img.shields.io/badge/React-blue?logo=react&logoColor=white&style=flat-square
+[React-url]: https://legacy.reactjs.org/docs/getting-started.html
