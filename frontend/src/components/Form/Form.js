@@ -72,11 +72,10 @@ function Form() {
                     <option value=""  disabled >Select Option</option>
                     <option value="salary">Salary</option>
                     <option value="freelancing">Freelancing</option>
-                    <option value="investments">Investiments</option>
+                    <option value="investments">Investments</option>
                     <option value="stocks">Stocks</option>
-                    <option value="bitcoin">Bitcoin</option>
+                    <option value="bitcoin">BitCoin</option>
                     <option value="bank">Bank Transfer</option>  
-                    <option value="youtube">Youtube</option>  
                     <option value="other">Other</option>  
                 </select>
             </div>
@@ -90,7 +89,7 @@ function Form() {
                     bPad={'.8rem 1.6rem'}
                     bRad={'30px'}
                     bg={'var(--color-accent'}
-                    color={'#fff'}
+                    color={'black'}
                 />
             </div>
         </FormStyled>
@@ -110,7 +109,7 @@ const FormStyled = styled.form`
         padding: .5rem 1rem;
         border-radius: 5px;
         border: 2px solid #fff;
-        background: transparent;
+        background: white;
         resize: none;
         box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
         color: rgba(34, 34, 96, 0.9);
@@ -139,7 +138,7 @@ const FormStyled = styled.form`
         button{
             box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
             &:hover{
-                background: var(--color-green) !important;
+                background: lightblue !important;
             }
         }
     }

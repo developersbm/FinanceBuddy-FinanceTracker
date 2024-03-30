@@ -24,7 +24,7 @@ const Navbar = () => {
                 <li><StyledNavLink to="/screens/dashboard">Dashboard</StyledNavLink></li>
                 <li><StyledNavLink to="/screens/incomes">Incomes</StyledNavLink></li>
                 <li><StyledNavLink to="/screens/expenses">Expenses</StyledNavLink></li>
-                <li><StyledNavLink to="/screens/stockpredictor">Stock Predictor</StyledNavLink></li>
+                <li><StyledNavLink to="/screens/stockPredictor">Stock Predictor</StyledNavLink></li>
                     <li>
                         <details>
                         <summary><img src={profile} style={{ width: '40px', height: '40px' }}></img></summary>

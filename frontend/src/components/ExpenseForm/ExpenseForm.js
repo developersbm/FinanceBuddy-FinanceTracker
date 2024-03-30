@@ -74,7 +74,7 @@ function ExpenseForm() {
                     <option value="groceries">Groceries</option>
                     <option value="health">Health</option>
                     <option value="subscriptions">Subscriptions</option>
-                    <option value="takeaways">Takeaways</option>
+                    <option value="takeaways">Takeaway</option>
                     <option value="clothing">Clothing</option>  
                     <option value="travelling">Travelling</option>  
                     <option value="other">Other</option>  
@@ -90,7 +90,7 @@ function ExpenseForm() {
                     bPad={'.8rem 1.6rem'}
                     bRad={'30px'}
                     bg={'var(--color-accent'}
-                    color={'#fff'}
+                    color={'black'}
                 />
             </div>
         </ExpenseFormStyled>
@@ -110,7 +110,7 @@ const ExpenseFormStyled = styled.form`
         padding: .5rem 1rem;
         border-radius: 5px;
         border: 2px solid #fff;
-        background: transparent;
+        background: white;
         resize: none;
         box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
         color: rgba(34, 34, 96, 0.9);
@@ -139,7 +139,7 @@ const ExpenseFormStyled = styled.form`
         button{
             box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
             &:hover{
-                background: var(--color-green) !important;
+                background: lightblue !important;
             }
         }
     }
