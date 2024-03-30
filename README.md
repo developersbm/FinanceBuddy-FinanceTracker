@@ -1,6 +1,6 @@
 <div id="readme-top"></div>
 
-# FinanceBuddy 
+# FinanceBuddy (MERN)
 
 ## Documentation 
 - <a href="#Authentication">Authentication & Users (Coming Soon)</a>
@@ -13,7 +13,6 @@
 ## Showcase
 
 https://github.com/developersbm/FinanceBuddy-FinanceTracker/assets/122469079/24cdcbdd-f8df-45a4-a69c-d53fd185007a
-
 
 <div id="backend"></div>
 
@@ -104,3 +103,10 @@ npm start
 - Using splice to return the three most recent transactions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## To Do
+- User Authentication so that each user has their own FinanceBuddy
+- Stock Predictor model (Already created in Python but has to be translated into React.js)
+- Chat with AI so that it can help you track your income and expenses more effectively
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p
