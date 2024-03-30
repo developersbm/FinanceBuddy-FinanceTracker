@@ -11,7 +11,9 @@
 <a id="Showcase"></a>
 
 ## Showcase
-Coming soon...
+
+https://github.com/developersbm/FinanceBuddy-FinanceTracker/assets/122469079/24cdcbdd-f8df-45a4-a69c-d53fd185007a
+
 
 <div id="backend"></div>
 
