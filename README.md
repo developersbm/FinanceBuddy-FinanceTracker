@@ -7,7 +7,7 @@
 - <a href="#Showcase">Showcase</a>
 - <a href="#built-with">Built With</a>
 - <a href="#backend">Backend</a>
-- <a href="#connecting-backend--frontend">Connecting Frontend & Backend</a>
+- <a href="#connecting-backend--frontend">Connecting Frontend & Backend</a> 
 - <a href="#to-do">To Do</a>
 
 <a id="Showcase"></a>
