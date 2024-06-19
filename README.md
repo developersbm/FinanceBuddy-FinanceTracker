@@ -3,12 +3,10 @@
 # FinanceBuddy (MERN)
 
 ## Documentation 
-- <a href="#Authentication">Authentication & Users (Coming Soon)</a>
 - <a href="#Showcase">Showcase</a>
 - <a href="#built-with">Built With</a>
 - <a href="#backend">Backend</a>
-- <a href="#connecting-backend--frontend">Connecting Frontend & Backend</a> 
-- <a href="#to-do">To Do</a>
+- <a href="#connecting-backend--frontend">Connecting Frontend & Backend</a>
 
 <a id="Showcase"></a>
 
@@ -120,14 +118,6 @@ npm start
 - Generates a summary of the transaction history by combining income and expense records.
 - Sorting them based on their creation dates in descending order. This is executed by the comparator function that compares 2 transactions a & b by their creation dates.
 - Using splice to return the three most recent transactions.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-<div id="to-do"></div>
-
-## To Do
-- User Authentication so that each user has their own FinanceBuddy
-- Stock Predictor model (Already created in Python but has to be translated into React.js)
-- Chat with AI so that it can help you track your income and expenses more effectively
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p
 
