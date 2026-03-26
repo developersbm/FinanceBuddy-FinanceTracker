@@ -1,8 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 import { dateFormat } from '../../utils/dateFormat';
 import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from '../../utils/Icons';
-import Button from '../Button/Button';
 
 function IncomeItem({
     id,
@@ -62,108 +60,43 @@ function IncomeItem({
         }
     }
 
-    console.log('type', type)
-
     return (
-        <IncomeItemStyled indicator={indicatorColor}>
-            <div className="icon">
-                {type === 'expense' ? expenseCatIcon() : categoryIcon()}
-            </div>
-            <div className="content">
-                <h5>{title}</h5>
-                <div className="inner-content">
-                    <div className="text">
-                        <p>{dollar} {amount}</p>
-                        <p>{calender} {dateFormat(date)}</p>
-                        <p>
-                            {comment}
-                            {description}
-                        </p>
+        <div className="card border border-base-200 bg-base-100 shadow-sm">
+            <div className="card-body gap-3 p-4">
+                <div className="flex items-start justify-between gap-4">
+                    <div className="flex min-w-0 items-start gap-3">
+                        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-box bg-base-200 text-lg">
+                            {type === 'expense' ? expenseCatIcon() : categoryIcon()}
+                        </div>
+                        <div className="min-w-0">
+                            <div className="flex items-center gap-2">
+                                <span
+                                    className="h-2 w-2 rounded-full"
+                                    style={{ background: indicatorColor || 'transparent' }}
+                                />
+                                <h3 className="truncate text-base font-bold">{title}</h3>
+                            </div>
+                            <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm opacity-80">
+                                <span className="flex items-center gap-2">{dollar} {amount}</span>
+                                <span className="flex items-center gap-2">{calender} {dateFormat(date)}</span>
+                                {description ? (
+                                    <span className="flex items-center gap-2">{comment}{description}</span>
+                                ) : null}
+                            </div>
+                        </div>
                     </div>
-                    <div className="btn-con">
-                        <Button 
-                            icon={trash}
-                            bPad={'1rem'}
-                            bRad={'50%'}
-                            bg={'var(--primary-color'}
-                            color={'darkgreen'}
-                            iColor={'darkgreen'}
-                            hColor={'var(--color-green)'}
-                            onClick={() => deleteItem(id)}
-                        />
-                    </div>
+
+                    <button
+                        type="button"
+                        className="btn btn-ghost btn-sm btn-circle text-error"
+                        aria-label="Delete"
+                        onClick={() => deleteItem(id)}
+                    >
+                        {trash}
+                    </button>
                 </div>
             </div>
-        </IncomeItemStyled>
+        </div>
     )
 }
-
-const IncomeItemStyled = styled.div`
-background: white;
-border: 2px solid #FFFFFF;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.06);
-    border-radius: 20px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    color: #222260;
-    .icon{
-        width: 80px;
-        height: 80px;
-        border-radius: 20px;
-        background: linear-gradient(to bottom right, lightgreen, lightblue);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid #FFFFFF;
-        i{
-            font-size: 2.6rem;
-        }
-    }
-
-    .content{
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: .2rem;
-        h5{
-            font-size: 1.3rem;
-            padding-left: 2rem;
-            position: relative;
-            &::before{
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: .8rem;
-                height: .8rem;
-                border-radius: 50%;
-                background: ${props => props.indicator};
-            }
-        }
-
-        .inner-content{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .text{
-                display: flex;
-                align-items: center;
-                gap: 1.5rem;
-                p{
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                    color: var(--primary-color);
-                    opacity: 0.8;
-                }
-            }
-        }
-    }
-`;
-
 export default IncomeItem

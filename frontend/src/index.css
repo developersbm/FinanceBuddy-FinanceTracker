@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ensure body inherits DaisyUI theme colors from html[data-theme] */
+body {
+  color: hsl(var(--bc));
+  background-color: hsl(var(--b1));
+}

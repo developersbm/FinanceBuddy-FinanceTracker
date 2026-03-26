@@ -1,32 +1,31 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Dashboard from './screens/dashboard';
 import Incomes from './screens/incomes';
 import Expenses from './screens/expenses';
-import { GlobalStyle } from './styles/GlobalStyle';
+import StockPredictor from './screens/stockPredictor';
 import { useGlobalContext } from './context/globalContext';
-import Chatbot from 'react-chatbot-kit';
-import config from './components/Chatbot/config';
-import ActionProvider from './components/Chatbot/ActionProvider';
-import MessageParser from './components/Chatbot/MessageParser';
 // import StockPredictionApp from '../../screens/stockPredictor';
 
 function App() {
 
-  const global = useGlobalContext()
-  console.log(global)
+  useGlobalContext();
 
   return (
     <Router>
-        <GlobalStyle />
-        <Navbar />
-          <Routes>
-            <Route exact path="/screens/dashboard" element={<Dashboard />} />
-            <Route path="/screens/incomes" element={<Incomes />} />
-            <Route exact path="/screens/expenses" element={<Expenses />} />
-            {/* <Route exact path="/screens/stockPredictor" element={<StockPredictionApp />} /> */}
-          </Routes>
+        <div className="min-h-screen bg-base-100 text-base-content">
+          <Navbar />
+          <main className="mx-auto w-full max-w-7xl px-6 py-8">
+            <Routes>
+              <Route path="/" element={<Navigate to="/screens/dashboard" replace />} />
+              <Route path="/screens/dashboard" element={<Dashboard />} />
+              <Route path="/screens/incomes" element={<Incomes />} />
+              <Route path="/screens/expenses" element={<Expenses />} />
+              <Route path="/screens/stocks" element={<StockPredictor />} />
+            </Routes>
+          </main>
+        </div>
           {/* <Chatbot
             config={config}
             messageParser={MessageParser}

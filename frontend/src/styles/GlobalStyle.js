@@ -9,9 +9,17 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     body {
-        font-family: 'Inter', sans-serif;
-        background: linear-gradient(to bottom right, lightgreen, lightblue);
+        font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
         margin: 0; 
         padding: 0;
+        min-height: 100vh;
+    }
+
+    html, body, #root {
+        height: 100%;
+    }
+
+    a {
+        color: inherit;
     }
 `;

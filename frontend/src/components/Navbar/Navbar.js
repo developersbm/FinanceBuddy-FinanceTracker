@@ -1,127 +1,111 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import avatar from '../../img/avatar.png';
 import { signout } from '../../utils/Icons';
-// import { menuItems } from '../../utils/menuItems';
 import logo from '../../img/logo.png';
-import profile from '../../img/profile2.png';
+import profile from '../../img/profile.png';
 import letters from '../../img/letters.png';
+import { useTheme } from '../../context/themeContext';
 
 const Navbar = () => {
-    const [active, setActive] = useState(null);
+    const { theme, toggleTheme } = useTheme();
+    const isDark = theme === 'dark';
 
     return (
-        <NavStyled>
+        <div className="navbar bg-base-100/90 backdrop-blur supports-[backdrop-filter]:bg-base-100/70 border-b border-base-200 px-4 sticky top-0 z-50">
+            {/* Brand */}
             <div className="flex-1">
-            <StyledNavLink to="/screens/dashboard" className="btn btn-ghost text-xl">
-                <img src={logo} style={{ width: '40px', height: '40px' }} />
-                <img src={letters} style={{ height: '30px' , paddingLeft: '10px'}} />
-            </StyledNavLink>
+                <NavLink to="/screens/dashboard" className="btn btn-ghost px-2">
+                    <img src={logo} alt="FinanceBuddy logo" className="h-10 w-10" />
+                    <img src={letters} alt="FinanceBuddy" className="h-7 pl-2" />
+                </NavLink>
             </div>
-            <div className="flex-none">
-                <ul className="menu menu-horizontal px-1">
-                <li><StyledNavLink to="/screens/dashboard">Dashboard</StyledNavLink></li>
-                <li><StyledNavLink to="/screens/incomes">Incomes</StyledNavLink></li>
-                <li><StyledNavLink to="/screens/expenses">Expenses</StyledNavLink></li>
-                <li><StyledNavLink to="/screens/stockPredictor">Stock Predictor</StyledNavLink></li>
+
+            {/* Nav links + actions */}
+            <div className="flex-none flex items-center gap-1">
+                <ul className="menu menu-horizontal items-center gap-1 px-1">
                     <li>
-                        <details>
-                        <summary><img src={profile} style={{ width: '40px', height: '40px' }}></img></summary>
-                            <ul className="dropdown-menu">
-                                <li><a href="/screens/account">Account</a></li>
-                                <li><a href="/screens/setting">Settings</a></li>
-                                <li style={{color: 'red'}} onClick={() => setActive(null)}>{signout} Sign Out</li>
-                            </ul>
-                        </details>
+                        <NavLink
+                            to="/screens/dashboard"
+                            className={({ isActive }) =>
+                                isActive ? 'font-semibold text-primary' : undefined
+                            }
+                        >
+                            Dashboard
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/screens/incomes"
+                            className={({ isActive }) =>
+                                isActive ? 'font-semibold text-primary' : undefined
+                            }
+                        >
+                            Incomes
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/screens/expenses"
+                            className={({ isActive }) =>
+                                isActive ? 'font-semibold text-primary' : undefined
+                            }
+                        >
+                            Expenses
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/screens/stocks"
+                            className={({ isActive }) =>
+                                isActive ? 'font-semibold text-primary' : undefined
+                            }
+                        >
+                            Stocks
+                        </NavLink>
                     </li>
                 </ul>
+
+                {/* Dark / Light mode toggle */}
+                <label className="swap swap-rotate btn btn-ghost btn-circle" title="Toggle theme">
+                    <input
+                        type="checkbox"
+                        checked={isDark}
+                        onChange={toggleTheme}
+                        aria-label="Toggle dark mode"
+                    />
+                    {/* Sun icon (shown in light mode) */}
+                    <svg className="swap-off fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+                    </svg>
+                    {/* Moon icon (shown in dark mode) */}
+                    <svg className="swap-on fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+                    </svg>
+                </label>
+
+                {/* Profile dropdown */}
+                <div className="dropdown dropdown-end">
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            <img src={profile} alt="Profile" className="h-full w-full object-cover" />
+                        </div>
+                    </div>
+                    <ul
+                        tabIndex={0}
+                        className="menu dropdown-content z-[1] mt-3 w-52 rounded-box border border-base-200 bg-base-100 p-2 shadow"
+                    >
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>Account</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>Settings</a></li>
+                        <li>
+                            <button type="button" className="flex items-center gap-2 text-error">
+                                {signout}
+                                <span>Sign Out</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </NavStyled>
+        </div>
     );
 };
-
-const NavStyled = styled.nav`
-    padding: 1.5rem 1.5rem;
-    width: 100%;
-    background: white;
-    border: 3px solid #ffffff;
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    text-decoration: none;
-
-    .menu {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-top: auto;
-        color: black;
-        font-size: 20px;
-        li {
-            cursor: pointer;
-            transition: all 0.4s ease-in-out;
-            color: linear-gradient(to bottom right, lightgreen, lightblue) !important;
-            position: relative;
-=
-            &.active {
-                color: linear-gradient(to bottom right, lightgreen, lightblue) !important;
-
-                &::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 4px;
-                    height: 100%;
-                    background: #222260;
-                }
-            }
-        }
-    }
-
-    .dropdown-menu {
-        position: absolute;
-        background: white;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        list-style-type: none;
-        padding: 0;
-        width: 10em;
-        margin: 0;
-        border-radius: 8px;
-        color: green;
-        
-        right: 0; 
-        a {
-            text-decoration: none;
-            color: green;
-        }
-        li {
-            padding: 8px 12px;
-            transition: background-color 0.3s;
-
-            &:hover {
-                background-color: #f0f0f0;
-            }
-        }
-    }
-    
-    
-`;
-const StyledNavLink = styled(NavLink)`
-    text-decoration: none;
-    background: linear-gradient(to bottom, darkgreen, #65d684, #65d684, #65d684, cyan);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: background 0.5s ease;
-
-    &:hover {
-        background: none;
-        -webkit-text-fill-color: black;
-    }
-`;
-
-
-
 export default Navbar;

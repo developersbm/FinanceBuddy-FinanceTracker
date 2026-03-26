@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../context/globalContext';
-import styled from 'styled-components';
 import { dollar } from '../utils/Icons';
 import History from '../History/History';
 import Chart from '../components/Chart/Chart';
@@ -12,159 +11,133 @@ const Dashboard = () => {
   useEffect(() => {
     getIncomes();
     getExpenses();
-  }, []);
+  }, [getIncomes, getExpenses]);
+
+  const balance = totalBalance();
+  const balanceColor = balance >= 0 ? 'text-success' : 'text-error';
 
   return (
-    <DashboardStyled> 
-    <h1 className='history-title'>Financial History</h1>      
-    <div className="stats-con">
-        <div className="chart-con">
-          <div className="chart-container">
-            <Chart />
-            <PieChart />
-          </div>
-          <div className="amount-con">
-            <div className="income">
-              <h2>Total Income</h2>
-              <p>
-                {dollar} {totalIncome()}
-              </p>
+    <div className="space-y-8">
+      <div className="flex justify-center -mb-2">
+        <div className="rounded-full bg-base-200/60 px-4 py-1.5 text-xs opacity-75 max-w-fit text-center">
+          ⚠️ Static demo. The API is not currently hosted. Data shown is local mock data.
+        </div>
+      </div>
+
+      {/* Page header */}
+      <div className="flex flex-col gap-1">
+        <h1 className="text-3xl font-extrabold tracking-tight">Dashboard</h1>
+        <p className="text-sm opacity-60">Your financial overview at a glance.</p>
+      </div>
+
+      {/* KPI strip */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="card border border-base-200 bg-base-100 shadow-sm hover:shadow-md transition-shadow">
+          <div className="card-body py-5">
+            <div className="flex items-center gap-2 text-sm opacity-60 mb-1">
+              <i className="fa-solid fa-arrow-trend-up text-success" />
+              Total Income
             </div>
-            <div className="expense">
-              <h2>Total Expense</h2>
-              <p>
-                {dollar} {totalExpenses()}
-              </p>
-            </div>
-            <div className="balance">
-              <h2>Total Balance</h2>
-              <p className="total-balance">
-                {dollar} {totalBalance()}
-              </p>
+            <div className="text-3xl font-extrabold text-success">
+              {dollar}&nbsp;{totalIncome()}
             </div>
           </div>
         </div>
-        <div className="history-con">
-          <History />
-          <h2 className="salary-title">
-            Min <span>Income</span>Max
-          </h2>
-          <div className="salary-item">
-            <p>${Math.min(...incomes.map((item) => item.amount))}</p>
-            <p>${Math.max(...incomes.map((item) => item.amount))}</p>
+
+        <div className="card border border-base-200 bg-base-100 shadow-sm hover:shadow-md transition-shadow">
+          <div className="card-body py-5">
+            <div className="flex items-center gap-2 text-sm opacity-60 mb-1">
+              <i className="fa-solid fa-arrow-trend-down text-error" />
+              Total Expenses
+            </div>
+            <div className="text-3xl font-extrabold text-error">
+              {dollar}&nbsp;{totalExpenses()}
+            </div>
           </div>
-          <h2 className="salary-title">
-            Min <span>Expense</span>Max
-          </h2>
-          <div className="salary-item">
-            <p>${Math.min(...expenses.map((item) => item.amount))}</p>
-            <p>${Math.max(...expenses.map((item) => item.amount))}</p>
+        </div>
+
+        <div className="card border border-base-200 bg-base-100 shadow-sm hover:shadow-md transition-shadow">
+          <div className="card-body py-5">
+            <div className="flex items-center gap-2 text-sm opacity-60 mb-1">
+              <i className="fa-solid fa-wallet" />
+              Net Balance
+            </div>
+            <div className={`text-3xl font-extrabold ${balanceColor}`}>
+              {dollar}&nbsp;{balance}
+            </div>
           </div>
         </div>
       </div>
-    </DashboardStyled>
+
+      {/* Chart row — full width */}
+      <Chart />
+
+      {/* Bottom section: Pie chart + activity + ranges side by side */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+
+        {/* Left: Pie chart */}
+        <PieChart />
+
+        {/* Right: Recent activity + ranges */}
+        <div className="flex flex-col gap-6">
+
+          {/* Recent activity */}
+          <div className="card border border-base-200 bg-base-100 shadow-sm flex-1">
+            <div className="card-body gap-4">
+              <div className="flex items-baseline justify-between">
+                <h2 className="card-title">Recent Activity</h2>
+                <span className="text-xs opacity-60">Latest transactions</span>
+              </div>
+              <History />
+            </div>
+          </div>
+
+          {/* Ranges */}
+          <div className="card border border-base-200 bg-base-100 shadow-sm">
+            <div className="card-body gap-4">
+              <h2 className="card-title">Ranges</h2>
+
+              {/* Income range */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-sm font-semibold">Income range</div>
+                  <div className="text-xs opacity-60">Min / Max</div>
+                </div>
+                <div className="flex items-center justify-between rounded-box border border-base-200 bg-base-200/40 px-4 py-3">
+                  <span className="font-semibold text-success">
+                    ${incomes.length ? Math.min(...incomes.map((i) => i.amount)) : 0}
+                  </span>
+                  <span className="text-xs opacity-40">—</span>
+                  <span className="font-semibold text-success">
+                    ${incomes.length ? Math.max(...incomes.map((i) => i.amount)) : 0}
+                  </span>
+                </div>
+              </div>
+
+              {/* Expense range */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-sm font-semibold">Expense range</div>
+                  <div className="text-xs opacity-60">Min / Max</div>
+                </div>
+                <div className="flex items-center justify-between rounded-box border border-base-200 bg-base-200/40 px-4 py-3">
+                  <span className="font-semibold text-error">
+                    ${expenses.length ? Math.min(...expenses.map((e) => e.amount)) : 0}
+                  </span>
+                  <span className="text-xs opacity-40">—</span>
+                  <span className="font-semibold text-error">
+                    ${expenses.length ? Math.max(...expenses.map((e) => e.amount)) : 0}
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   );
 };
-
-const DashboardStyled = styled.div`
-  .history-title {
-    text-align: right;
-    margin-right: 13pc;
-    padding-bottom: 5px;
-    font-size: 1.7rem;
-  }
-  .sub-title {
-    margin-right: 2rem;
-    text-align: right;
-  }
-  .main-title {
-    display: grid;
-  }
-  .stats-con {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-    margin-left: 2rem;
-    .chart-con {
-      .chart-container {
-        display: flex;
-        gap: 3rem;
-      }
-      .amount-con {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 2rem;
-        margin-top: 2rem;
-        .income {
-          color: green !important;
-        }
-        .expense {
-          color: red;
-        }
-        .income,
-        .expense,
-        .balance {
-          background: white;
-          height: 78px;
-          border: 2px solid #ffffff;
-          box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-          border-radius: 20px;
-          padding: 1rem;
-          width: 100%;
-          p {
-            font-size: 1.7rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-          }
-          h2 {
-            font-size: 1.5rem;
-            margin-top: -10px;
-            color: black !important;
-          }
-        }
-        .balance {
-          display: flex;
-          flex-direction: column;
-          align-items: left;
-          p {
-            color: var(--color-green);
-            font-size: 1.7rem;
-            margin-bottom: 28px;
-          }
-        }
-      }
-    }
-    .history-con {
-      margin-right: 20px;
-      padding-right: 30px;
-      h2 {
-        margin: 1rem 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .salary-title {
-        font-size: 1.2rem;
-        span {
-          font-size: 1.8rem;
-        }
-      }
-      .salary-item {
-        background: white;
-        border: 2px solid #ffffff;
-        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-        padding: 1rem;
-        border-radius: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        p {
-          font-weight: 600;
-          font-size: 1.6rem;
-        }
-      }
-    }
-  }
-`;
 
 export default Dashboard;

@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { useGlobalContext } from '../context/globalContext';
 
 function History() {
@@ -8,47 +7,24 @@ function History() {
     const [...history] = transactionHistory()
 
     return (
-        <HistoryStyled>
+        <div className="space-y-2">
             {history.map((item) =>{
                 const {_id, title, amount, type} = item
 
                 return (
-                    <div key={_id} className="history-item">
-                        <p style={{ fontWeight: 'bold', color: 'black' }}>
+                    <div key={_id} className="flex items-center justify-between rounded-box border border-base-200 bg-base-100 px-4 py-3 hover:bg-base-200/30">
+                        <p className="truncate font-semibold">
                             {title}
                         </p>
 
-                        <p style={{
-                            color: type === 'income' ? 'green' : 'red'
-                        }}>
-                            {
-                                type === 'expense' ? `-${amount <= 0 ? 0 : amount}` : `+${amount <= 0 ? 0: amount}`
-                            }
+                        <p className={type === 'income' ? 'font-bold text-success' : 'font-bold text-error'}>
+                            {type === 'expense' ? `-${amount <= 0 ? 0 : amount}` : `+${amount <= 0 ? 0: amount}`}
                         </p>
                     </div>
                 )
             })}
-        </HistoryStyled>
+        </div>
     )
 }
-
-const HistoryStyled = styled.div`
-    h2 {
-        font-size: 30px;
-    }
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    .history-item{
-        background: white;
-        border: 2px solid #FFFFFF;
-        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-        padding: 1rem;
-        border-radius: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-`;
 
 export default History
