@@ -94,8 +94,8 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu dropdown-content z-[1] mt-3 w-52 rounded-box border border-base-200 bg-base-100 p-2 shadow"
                     >
-                        <li><a href="#" onClick={(e) => e.preventDefault()}>Account</a></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()}>Settings</a></li>
+                        <li><button type="button" className="text-left w-full" onClick={(e) => e.preventDefault()}>Account</button></li>
+                        <li><button type="button" className="text-left w-full" onClick={(e) => e.preventDefault()}>Settings</button></li>
                         <li>
                             <button type="button" className="flex items-center gap-2 text-error">
                                 {signout}

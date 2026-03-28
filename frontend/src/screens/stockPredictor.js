@@ -110,7 +110,7 @@ const StockPredictor = () => {
         fill: true,
       },
     ],
-  }), [selectedStock, stock]);
+  }), [stock]);
 
   const forecastMonths = Math.min(years * 12, stock.forecast.length);
   const forecastData = useMemo(() => ({
@@ -127,7 +127,7 @@ const StockPredictor = () => {
         fill: true,
       },
     ],
-  }), [selectedStock, forecastMonths, stock]);
+  }), [forecastMonths, stock]);
 
   const chartOptions = {
     responsive: true,
